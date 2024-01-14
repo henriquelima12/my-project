@@ -18,7 +18,6 @@ import com.henrique.myproject.config.JwtTokenUtil;
 import com.henrique.myproject.entities.JwtRequest;
 import com.henrique.myproject.entities.JwtResponse;
 import com.henrique.myproject.services.JwtUserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @RestController
 @CrossOrigin
