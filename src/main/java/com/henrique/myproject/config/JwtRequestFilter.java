@@ -37,6 +37,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
 		// JWT Token está no form "Bearer token". Remova a palavra Bearer e pegue
 		// somente o Token
+		if (requestTokenHeader == null || !requestTokenHeader.startsWith("Bearer ")) {
+            // Token ausente ou no formato errado, rejeita a solicitação
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            return;
+        }
+		
 		if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
 			jwtToken = requestTokenHeader.substring(7);
 			try {
