@@ -35,6 +35,10 @@ public class Task {
     @Column(name = "updated_at")
     private Date updatedAt;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="id_user", referencedColumnName="id", nullable=false)
+    private User idUser;
+
     public Integer getId() {
         return id;
     }
@@ -89,6 +93,14 @@ public class Task {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public User getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
     }
 
 }
